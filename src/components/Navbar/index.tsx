@@ -1,7 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
+import { NavbarProps } from './types';
 
-interface NavbarProps {
-  navbarItems: string[];
-}
 export const Navbar: FunctionComponent<NavbarProps> = ({ navbarItems }) => (<nav></nav>);
