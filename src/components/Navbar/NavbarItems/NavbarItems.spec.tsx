@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { Navbar } from ".";
+import { NavbarItems } from ".";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 
@@ -15,7 +15,7 @@ describe("<Navbar />", () => {
 
     render(
       <Router history={history}>
-        <Navbar navbarItems={navbarItems} />
+        <NavbarItems items={navbarItems} />
       </Router>
     );
 
