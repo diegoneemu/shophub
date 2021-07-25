@@ -4,7 +4,7 @@ import { NavbarItems } from ".";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 
-describe("<Navbar />", () => {
+describe("<NavbarItems />", () => {
   test("Should be render a correct navbar itens", () => {
     const navbarItems = [
       { id: "itemA", name: "Item A", path: "/" },
