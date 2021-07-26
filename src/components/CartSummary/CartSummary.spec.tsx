@@ -10,6 +10,13 @@ describe("<CartSummary />", () => {
     expect(tooltip).toHaveTextContent("3");
   });
 
-  test.todo("Should be render a cart summary with correct items subtotal");
+  test("Should be render a cart summary with correct items subtotal", () => {
+    render(<CartSummary quantity={3} />)
+
+    const subtotal = screen.queryByText(/R\$\s\d{1,6},\d{2}/i);
+
+    expect(subtotal).toHaveTextContent("R$ 12345,00");
+  });
+
   test.todo("Should be render a cart summary with correct bag icon");
 });
