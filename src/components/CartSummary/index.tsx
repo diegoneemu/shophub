@@ -16,6 +16,7 @@ export const CartSummary: FunctionComponent<CartSummaryProps> = ({
 
   return <div>
     <p>{formattedSubtotal}</p>
+    <img src="img/bag.png" alt="bag cart summary icon" />
     <span role="tooltip">{quantity}</span>
   </div>
 };
