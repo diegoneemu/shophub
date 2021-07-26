@@ -14,5 +14,10 @@ describe("<CartSummary />", () => {
     expect(subtotal).toHaveTextContent("R$ 12.345,00");
   });
 
-  test.todo("Should be render a cart summary with correct bag icon");
+  test("Should be render a cart summary with correct bag icon", () => {
+    render(<CartSummary />);
+    const bag = screen.queryByAltText(/bag cart summary icon/i);
+    const src = bag?.getAttribute("src");
+    expect(src).toEqual('img/bag.png');
+  });
 });
