@@ -1,3 +1,4 @@
 export interface CartSummaryProps {
-  quantity: number;
+  quantity?: number;
+  subtotal?: number;
 }

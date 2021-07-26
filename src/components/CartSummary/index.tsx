@@ -1,11 +1,21 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useMemo } from "react";
 import { CartSummaryProps } from "./types/CartSummaryProps";
 
 export const CartSummary: FunctionComponent<CartSummaryProps> = ({
   quantity,
-}) => (
-  <div>
-    <p>R$ 12345,00</p>
+  subtotal
+}) => {
+  const formattedSubtotal = useMemo(()=>{
+    const localeSubtotal = subtotal?.toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    })
+
+    return `R$ ${localeSubtotal}`;
+  },[subtotal])
+
+  return <div>
+    <p>{formattedSubtotal}</p>
     <span role="tooltip">{quantity}</span>
   </div>
-);
+};
