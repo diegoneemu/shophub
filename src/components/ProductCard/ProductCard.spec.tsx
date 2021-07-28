@@ -9,7 +9,9 @@ interface ProductCardProps {
 }
 
 const ProductCard: FunctionComponent<ProductCardProps> = ({product}) => (
-  <div></div>
+  <div>
+    <p>{product.name}</p>
+  </div>
 )
 
 describe("<ProductCard />", ()=> {
