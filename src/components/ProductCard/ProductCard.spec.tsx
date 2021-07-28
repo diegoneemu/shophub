@@ -1,22 +1,10 @@
 import {render, screen} from "@testing-library/react";
-import { FunctionComponent } from "react";
-
-type Product = {
-  name: string;
-}
-interface ProductCardProps {
-  product: Product;
-}
-
-const ProductCard: FunctionComponent<ProductCardProps> = ({product}) => (
-  <div>
-    <p>{product.name}</p>
-  </div>
-)
+import { Product } from "../../types";
+import { ProductCard } from ".";
 
 describe("<ProductCard />", ()=> {
   test("Should be render a product card with correct name of product", ()=>{
-    const product = {
+    const product: Product = {
       name: 'Popular Shoes Trends'
     }
 
