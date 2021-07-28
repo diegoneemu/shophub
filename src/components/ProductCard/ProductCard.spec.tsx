@@ -5,13 +5,18 @@ import { ProductCard } from ".";
 describe("<ProductCard />", () => {
   test("Should be render a product card with correct name of product", () => {
     const { product } = makeSutDependencies();
-
     render(<ProductCard product={product} />);
     const productNameElement = screen.queryByText(product.name);
     expect(productNameElement).toHaveTextContent(product.name);
   });
 
-  test.todo("Should be render a product card with correct coast of product");
+  test("Should be render a product card with correct coast of product", () => {
+    const { product } = makeSutDependencies();
+    render(<ProductCard product={product} />);
+    const productNameElement = screen.queryByText(/^R\$\s(?!0+\,00)((\d{1,3}\.)*)(\d{1,3}),(\d{2})$/);
+    expect(productNameElement).toHaveTextContent(`R$ ${product.coast},00`);
+  });
+
   test.todo("Should be render a product card with correct image of product");
   test.todo("Should be render a product card with bag icon");
   test.todo("Should be render a product card with details button");
@@ -24,6 +29,7 @@ type SutDependenciesParams = {
 function makeSutDependencies(): SutDependenciesParams {
   const product: Product = {
     name: "Popular Shoes Trends",
+    coast: 236
   };
 
   return { product };
