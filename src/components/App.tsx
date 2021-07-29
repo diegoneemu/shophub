@@ -11,9 +11,11 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
-          <Logo />
-          <Navbar />
-          <CartSummary />
+          <header>
+            <Logo />
+            <Navbar />
+            <CartSummary />
+          </header>
           <section id="pageContent">
             <Routes />
           </section>
