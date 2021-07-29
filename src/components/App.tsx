@@ -13,10 +13,10 @@ function App() {
         <BrowserRouter>
           <Logo />
           <Navbar />
+          <CartSummary />
           <section id="pageContent">
             <Routes />
           </section>
-          <CartSummary />
         </BrowserRouter>
       </div>
     </>
