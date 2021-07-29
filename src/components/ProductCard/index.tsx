@@ -15,7 +15,7 @@ export const ProductCard: FunctionComponent<ProductCardProps> = ({
 
   return (
     <div>
-      <img alt="enviar produto para carrinho" src="img/bag.png" />
+      <img alt="colocar produto na sacola" src="img/bag.png" />
       <img alt={`${product.name} Foto`} src={product.image} />
       <p>{product.name}</p>
       <p>{coastFormatted}</p>

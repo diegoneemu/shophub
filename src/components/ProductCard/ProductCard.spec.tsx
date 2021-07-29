@@ -28,7 +28,7 @@ describe("<ProductCard />", () => {
   test("Should be render a product card with bag icon", () => {
     const { product } = makeSutDependencies();
     render(<ProductCard product={product} />);
-    const bag = screen.queryByAltText(/enviar produto para carrinho/i);
+    const bag = screen.queryByAltText(/colocar produto na sacola/i);
     const src = bag?.getAttribute("src");
     expect(src).toEqual('img/bag.png');
   });
