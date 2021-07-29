@@ -2,8 +2,6 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import menuList from "../config/menu";
 import { MenuItem } from "../types/MenuItem";
-import { createMemoryHistory } from "history";
-import { Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
 describe("<App />", () => {
@@ -32,15 +30,15 @@ describe("<App />", () => {
     menuList.forEach((menuItem: MenuItem) => {
       const menuLink = screen.queryByRole("link", { name: menuItem.name });
       expect(menuLink).toBeInTheDocument();
-  
+
       if (menuLink) {
         userEvent.click(menuLink, mouseClick);
       }
-  
+
       const pageHeading = screen.queryByRole("heading", {
         name: menuItem.name,
       });
       expect(pageHeading).toBeInTheDocument();
-    })
+    });
   });
 });
