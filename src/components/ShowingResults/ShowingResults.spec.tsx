@@ -8,7 +8,11 @@ describe("<ShowingResults />", () => {
     expect(showingResultComponent).toHaveTextContent("Showing 1-12 of 36 results");
   });
 
-  test.todo("Should be render a correct interval in second page");
+  test("Should be render a correct interval in second page", () => {
+    render(<ShowingResults currentPage={2} totalResults={36} perPage={12}/>)
+    const showingResultComponent = screen.queryByText(/Showing \d+-\d+ of \d+ results/);
+    expect(showingResultComponent).toHaveTextContent("Showing 13-24 of 36 results");
+  });
   test.todo("Should be render a correct interval in third page");
   test.todo("Should be render a correct interval in last page");
 })
