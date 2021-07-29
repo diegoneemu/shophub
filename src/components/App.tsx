@@ -1,13 +1,12 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
+import { Blog } from "./Pages/Blog";
+import { Contact } from "./Pages/Contact";
+import { Home } from "./Pages/Home";
 import { Logo } from "./Logo";
 import { Navbar } from "./Navbar";
-
-const Home: FunctionComponent = () => (<div><h1>Home</h1></div>)
-const Shop: FunctionComponent = () => (<div><h1>Shop</h1></div>)
-const Blog: FunctionComponent = () => (<div><h1>Blog</h1></div>)
-const Contact: FunctionComponent = () => (<div><h1>Contact</h1></div>)
+import { Shop } from "./Pages/Shop";
 
 function App() {
   return (
