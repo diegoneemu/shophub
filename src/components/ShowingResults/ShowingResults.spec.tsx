@@ -1,9 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { FunctionComponent } from "react";
-
-const ShowingResults: FunctionComponent<{currentPage: number, totalResults: number}> = ({currentPage, totalResults}) => (
-  <p>Showing {(currentPage - 1) * 12 + 1}-{(currentPage) * 12} of {totalResults} results</p>
-)
+import { ShowingResults } from ".";
 
 describe("<ShowingResults />", () => {
   test("Should be render a correct interval that view in list and total results", () => {
