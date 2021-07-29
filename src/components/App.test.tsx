@@ -14,12 +14,12 @@ describe("<App />", () => {
   test("Should be render a navbar", () => {
     render(<App />);
     menuList.forEach((menuItem: MenuItem) => {
-      const item = screen.queryByText(menuItem.name);
+      const item = screen.queryByRole("link", { name: menuItem.name });
       expect(item).toBeInTheDocument();
     });
   });
 
-  test.only("Should be navigating with navbar", async () => {
+  test("Should be navigating with navbar", () => {
     render(<App />);
 
     const homePageHeading = screen.queryByRole("heading", { name: /Home/i });
