@@ -15,6 +15,7 @@ export const ProductCard: FunctionComponent<ProductCardProps> = ({
 
   return (
     <div>
+      <img alt={`${product.name} Foto`} src={product.image} />
       <p>{product.name}</p>
       <p>{coastFormatted}</p>
     </div>
