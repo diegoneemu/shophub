@@ -17,7 +17,13 @@ describe("<ProductCard />", () => {
     expect(productNameElement).toHaveTextContent(`R$ ${product.coast},00`);
   });
 
-  test.todo("Should be render a product card with correct image of product");
+  test("Should be render a product card with correct image of product", () => {
+    const { product } = makeSutDependencies();
+    render(<ProductCard product={product} />);
+    const productImgElement = screen.queryByAltText(/Popular Shoes Trends Foto/);
+    expect(productImgElement?.getAttribute('src')).toEqual(product.image);
+  });
+
   test.todo("Should be render a product card with bag icon");
   test.todo("Should be render a product card with details button");
 });
@@ -29,7 +35,8 @@ type SutDependenciesParams = {
 function makeSutDependencies(): SutDependenciesParams {
   const product: Product = {
     name: "Popular Shoes Trends",
-    coast: 236
+    coast: 236,
+    image: "123-popular_shoes_trends-blue"
   };
 
   return { product };
