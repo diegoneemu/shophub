@@ -2,6 +2,9 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import menuList from "../config/menu";
 import { MenuItem } from "../types/MenuItem";
+import { createMemoryHistory } from 'history';
+import { Router } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 
 describe("<App />", () => {
   test("Ensure that render logo", () => {
@@ -18,4 +21,26 @@ describe("<App />", () => {
       expect(item).toBeInTheDocument();
     });
   });
+
+  test.only("Should be navigating with navbar", async () => {
+    const history = createMemoryHistory();
+
+    render(
+        <App />
+    )
+
+    const homePageHeading = screen.queryByRole('heading', {name: /Home/i});
+    expect(homePageHeading).toBeInTheDocument();
+
+    const mouseClick = { button: 0 };
+    const shopMenuLink = screen.queryByRole('link', {name: /Shop/i})
+    expect(shopMenuLink).toBeInTheDocument();
+
+    if(shopMenuLink){
+      userEvent.click(shopMenuLink, mouseClick);
+    }
+
+    const shopPageHeading = await screen.findByRole('heading', {name: /Shop/i})
+    expect(shopPageHeading).toBeInTheDocument()
+  })
 });
