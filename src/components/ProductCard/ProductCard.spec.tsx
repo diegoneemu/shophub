@@ -32,7 +32,14 @@ describe("<ProductCard />", () => {
     const src = bag?.getAttribute("src");
     expect(src).toEqual('img/bag.png');
   });
-  test.todo("Should be render a product card with details button");
+
+  test("Should be render a product card with details button", () => {
+    const { product } = makeSutDependencies();
+    render(<ProductCard product={product} />);
+    const viewButton = screen.queryByAltText(/ver detalhes do produto/i);
+    const src = viewButton?.getAttribute("src");
+    expect(src).toEqual('img/viewDetails.png');
+  });
 });
 
 type SutDependenciesParams = {
