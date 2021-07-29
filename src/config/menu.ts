@@ -1,4 +1,4 @@
-export default [
+const menuList = [
   {
     id: 'home',
     name: 'Home',
@@ -19,4 +19,6 @@ export default [
     name: 'Contact',
     path: '/contact'
   }
-]
+];
+
+export default menuList
