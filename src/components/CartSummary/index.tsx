@@ -14,7 +14,7 @@ export const CartSummary: FunctionComponent<CartSummaryProps> = ({
     return `R$ ${localeSubtotal}`;
   },[subtotal])
 
-  return <div>
+  return <div aria-label="cart-summary">
     <p>{formattedSubtotal}</p>
     <img src="img/bag.png" alt="bag cart summary icon" />
     <span role="tooltip">{quantity}</span>
