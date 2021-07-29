@@ -29,16 +29,18 @@ describe("<App />", () => {
 
     const mouseClick = { button: 0 };
 
-    const shopMenuLink = screen.queryByRole("link", { name: /Shop/i });
-    expect(shopMenuLink).toBeInTheDocument();
-
-    if (shopMenuLink) {
-      userEvent.click(shopMenuLink, mouseClick);
-    }
-
-    const shopPageHeading = screen.queryByRole("heading", {
-      name: /Shop/i,
-    });
-    expect(shopPageHeading).toBeInTheDocument();
+    menuList.forEach((menuItem: MenuItem) => {
+      const menuLink = screen.queryByRole("link", { name: menuItem.name });
+      expect(menuLink).toBeInTheDocument();
+  
+      if (menuLink) {
+        userEvent.click(menuLink, mouseClick);
+      }
+  
+      const pageHeading = screen.queryByRole("heading", {
+        name: menuItem.name,
+      });
+      expect(pageHeading).toBeInTheDocument();
+    })
   });
 });
