@@ -25,7 +25,13 @@ describe("<ProductCard />", () => {
     expect(src).toEqual(product.image);
   });
 
-  test.todo("Should be render a product card with bag icon");
+  test("Should be render a product card with bag icon", () => {
+    const { product } = makeSutDependencies();
+    render(<ProductCard product={product} />);
+    const bag = screen.queryByAltText(/enviar produto para carrinho/i);
+    const src = bag?.getAttribute("src");
+    expect(src).toEqual('img/bag.png');
+  });
   test.todo("Should be render a product card with details button");
 });
 
