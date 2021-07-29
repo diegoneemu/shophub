@@ -19,5 +19,10 @@ describe("<ShowingResults />", () => {
     const showingResultComponent = screen.queryByText(/Showing \d+-\d+ of \d+ results/);
     expect(showingResultComponent).toHaveTextContent("Showing 25-36 of 50 results");
   });
-  test.todo("Should be render a correct interval in last page");
+
+  test("Should be render a correct interval in last page", () => {
+    render(<ShowingResults currentPage={5} totalResults={50} perPage={12}/>)
+    const showingResultComponent = screen.queryByText(/Showing \d+-\d+ of \d+ results/);
+    expect(showingResultComponent).toHaveTextContent("Showing 49-50 of 50 results");
+  });
 })
