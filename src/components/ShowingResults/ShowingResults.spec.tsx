@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { FunctionComponent } from "react";
 
-const ShowingResults: FunctionComponent<{currentPage: number, totalResults: number}> = () => (
-  <p></p>
+const ShowingResults: FunctionComponent<{currentPage: number, totalResults: number}> = ({currentPage, totalResults}) => (
+  <p>Showing {(currentPage - 1) * 12 + 1}-{(currentPage) * 12} of {totalResults} results</p>
 )
 
 describe("<ShowingResults />", () => {
