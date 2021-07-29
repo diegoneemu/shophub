@@ -41,4 +41,10 @@ describe("<App />", () => {
       expect(pageHeading).toBeInTheDocument();
     });
   });
+
+  test("Should be render a shop cart summary", () => {
+    render(<App />);
+    const subtotal = screen.queryByLabelText("cart-summary");
+    expect(subtotal).toBeInTheDocument();
+  })
 });
